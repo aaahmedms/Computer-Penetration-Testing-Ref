@@ -7,7 +7,7 @@ A series of examples on the practical usage of pen testing tools compiled from m
 <hr>
 <br /> <b> Sources: </b>
 <br /> Mohamed Shahat - How to prepare for PWK/OSCP <br />
-Advanced Peneteration Testing Course by Georgia Weidman <br />
+Georgia Weidman - Advanced Peneteration Testing Course <br />
 Niiconsulting - A Detailed Guide on OSCP Preparation  <br /> 
 <br />
 

@@ -29,4 +29,4 @@ Niiconsulting - A Detailed Guide on OSCP Preparation  <br />
 - Disable 3D acceleration on your VM
 <br /> <br /> 2. Error: Failed to open a session for the virtual machine Windows 7. Implementation of the USB 2.0 controller not found  <br /> 
 - Ensure the Extension Package is installed along with virtual box if this error shows up. The extension box must be the same version of virtual box or it will not install properly. 
-<br />e.g. Link: https://download.virtualbox.org/virtualbox/6.0.14/Oracle_VM_VirtualBox_Extension_Pack-6.0.14.vbox-extpack
+<br />Example Link: https://download.virtualbox.org/virtualbox/6.0.14/Oracle_VM_VirtualBox_Extension_Pack-6.0.14.vbox-extpack

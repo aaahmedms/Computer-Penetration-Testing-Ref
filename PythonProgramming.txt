@@ -1,0 +1,44 @@
+fileName.py
+
+create file:
+nano fileName.py
+which python
+
+find where python interperator is
+which python
+
+output:
+/usr/bin/python
+
+tell linux what interpreter to use (in code included at top):
+#!/usr/bin/python
+
+permissions must be set to run bash scripts:
+chmod +x fileName.py
+
+
+how to run script in terminal:
+./fileName.py
+
+python --> indents are required for loops and if statements
+
+
+AF_INET = TCP 
+========================================
+basic python port scanner:
+
+
+#!/usr/bin/python
+import socket 
+ip = raw_input("Enter the IP address: ")
+port = input("Enter the port number: ")
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+if sock.connect_ex((ip , port)):
+	print "Port ", port, " is closed"
+else:
+	print  "Port ", port, " is open and listening"
+
+
+
+
+===========================================

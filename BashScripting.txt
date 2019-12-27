@@ -1,0 +1,36 @@
+fileName.sh
+
+create file:
+nano fileName.sh
+
+tell linux what interpreter to use (in code included at top):
+#!/bin/bash
+
+
+permissions must be set to run bash scripts:
+chmod 700 fileName.sh
+
+how to run script in terminal:
+./fileName.sh
+
+========================================
+script that pings server to see if it has a response:
+-if statement checks if user input is nothing
+-$1 first user input after fileName.sh command
+
+#!/bin/bash
+if [ "$1" == ""]
+then 
+echo "Usage: ./pingscript.sh [network]"
+echo "Example: ./pingscript.sh 192.168.1"
+else
+for x in seq 1 254 : do
+ping -c 1 $1.$x | grep "64 bytes" | cut -d " " -f 4 | sed 's/.$//'
+done
+fi
+
+-------------------------------------------------------------
+running command:
+./pingscript.sh 192.168.1
+
+===========================================

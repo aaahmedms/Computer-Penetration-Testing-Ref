@@ -1,0 +1,120 @@
+=============================  User Privileges: ============================= 
+adduser [userNameOfYourChoice] ---> create new user
+adduser [userNameOfYourChoice] sudo ---> give temporary root privileges to user by adding them to sudo group, 
+one time use only, once sudo is used the user is removed from sudo group
+su [userName] ---> change to this user
+exit ---> exit user and go to root
+
+=============================  General Commands: ============================= 
+pwd ---> print the name of current directory
+ls ---> show all files
+cat [filename] ---> show file contents
+touch [filename] ---> create file
+mkdir [NameOfDirectory] ---> create directory
+cd [filePath] ---> change to directory
+cp [PathToFileYouWantCopied] [PathWantToCopyFileToo] ---> copy file to path
+mv [PathToFile] [NewPathForFile] ---> move file, but can also rename file as well in same directory
+rm [FileName] ---> delete file
+cat [fileName] ---> show contents in file
+clear ---> clear terminal
+
+echo "string" ---> prints text on terminal
+echo "string" >> [fileName] ---> ">>" appends text onto file 
+echo "string" > [fileName]  ---> ">" puts string in file name
+
+man [command] ---> brings up man pages for options and general summary of commands
+e.g. man cat
+-type "q" to get out of man pages
+
+
+============================= Installing Packages ============================= 
+
+apt-get install [programName]  ---> install program
+
+
+
+============================= Text Editors: ============================= 
+nano [fileName] ---> opens file in text editor
+^W ---> just means CTRL+W
+
+=============================  Privilages and Permissions: ============================= 
+ls -l ---> show privilages and permissions for files and directories
+
+e.g.
+xxxxyyyzzz root root ---> x = owner / y = group / z = public
+drwxr-xr-x --->  r = read / w = write / x = execute
+
+chmod [OwnerPermission#][GroupPermission#][PublicPermission#] [FileName] ---> Assign permission to file or directory
+  Permissions:
+  4 = r (Read)
+  2 = w (Write)
+  1 = x (eXecute)
+  0 = no permissions
+  To represent rwx triplet use 4+2+1=7
+  To represent rw- triplet use 4+2+0=6
+  To represent r–- triplet use 4+0+0=4
+  To represent r-x triplet use 4+0+1=5
+  
+  +x = assign excecute permissions to all user types
+
+e.g.
+chmod 750 fileName
+
+============================= File Manipulation and Piping ============================= 
+cat [fileName] | grep B ----> the "|" takes the output that should be printed and sets it as input for the command on the other side
+cat [fileName] | grep B | cut -d " " -f 2 ---> can do multiple piping
+cat [fileName] | grep B | cut -d " " -f 2  > [fileName]  ---> put output into a file using ">" after the piped commands
+grep "String" ---> grab strings in each line start with "String"
+cut -d " " -f 2 ---> cut string delimited at " " with field 2
+| sort -u ---> show unique strings only, as in unique ID's or entries, non-repeating
+
+
+
+============================= Ports and IP Adressing ============================= 
+
+netstat -antp  ---> show listening ports
+ifconfig ---> show networking information
+nano /etc/network/interfaces   ---> 
+service networking restart ---> restarts network
+ping [ipAddress / URL]  ---> test if host is reachable, if so recieve response from it 
+
+nc ---> netcat is used to make tcp or udp connections
+nc -lvp portNumber ---> listen verbosely on port (lvp) portNumber
+nc -lvp portNumber -e /bin/bash ---> if user connects to this, give them terminal access
+nc [ipAddress] portNumber ---> connect to available connection
+
+e.g. Basic Chatting System
+nc -lvp 1234 ----> one 1 device
+nc 192.xxx.x 1234  ---> on other device
+-messages can now be sent from both parties
+-if "-e /bin/bash" is appended to command by host then connected user can run general linux commands
+
+e.g. Recieve Files from host
+nc 192.xxx.x 1234 < fileName  ---> connect to host and transfer file
+
+^C ---> kill netcat
+
+============================= Automated Tasks ============================= 
+-Automating tasks through cronjobs
+
+cd /etc  ---> change to etc directory
+ls | grep cron  ---> show all cronjobs
+
+output:
+cron.d
+cron.daily
+cron.monthly
+
+nano crontab ---> from here you can modify the cronjobs, add or remove them
+
+service cron restart ---> this is to restart scheduler so any cron jobs added will be scheduled to run after restart
+
+-----------------------------------------------------------------------------------
+Delete all files:
+cd to root
+rm -rf  ---> delete all files recursively
+
+Passwords:
+cd to root
+cat /etc/passwords ---> show all password files
+cat /etc/shadow ---> show all password hashes (use password cracker to reverse hashes)

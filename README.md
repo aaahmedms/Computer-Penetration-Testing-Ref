@@ -25,5 +25,5 @@ Niiconsulting - A Detailed Guide on OSCP Preparation  <br />
 
 <hr>
 <br /> <b> Issues and Fixes: </b>
-<br /> 1. Terminals are flickering and not showing up: 
+<br /> 1. Terminals are flickering and not showing up <br /> 
 - Disable 3D acceleration on your VM

@@ -8,3 +8,15 @@ Sources: <br />
 Mohamed Shahat - How to prepare for PWK/OSCP <br />
 Advanced Peneteration Testing Course by Georgia Weidman <br />
 Niiconsulting - A Detailed Guide on OSCP Preparation  <br />
+
+Virtual Machine:
+Virtual Box - Oracle VM VirtualBox (formerly Sun VirtualBox, Sun xVM VirtualBox and Innotek VirtualBox) is a free and open-source hosted hypervisor for x86 virtualization, developed by Oracle Corporation. Created by Innotek GmbH, it was acquired by Sun Microsystems in 2008, which was, in turn, acquired by Oracle in 2010.
+- https://www.virtualbox.org/wiki/Downloads
+
+Virtual Box Images:
+Kali Linux VirtualBox 64-Bit 
+- https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/#1572305786534-030ce714-cc3b
+
+Issues and Fixes:
+1. Terminals are flickering and not showing up: 
+- Disable 3D acceleration on your VM

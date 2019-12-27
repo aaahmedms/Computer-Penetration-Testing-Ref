@@ -1,2 +1,2 @@
-root
-toor
+Username: root
+Password: toor

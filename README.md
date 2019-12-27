@@ -17,7 +17,7 @@ Niiconsulting - A Detailed Guide on OSCP Preparation  <br />
 
 <hr>
 <br /> <b> Virtual Box Images: </b>
-<br /> Kali Linux VirtualBox 64-Bit 
+<br /> Kali Linux VirtualBox 64-Bit <br />
 - https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/#1572305786534-030ce714-cc3b
 
 <hr>

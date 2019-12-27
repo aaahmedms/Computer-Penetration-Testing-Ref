@@ -13,7 +13,7 @@ Niiconsulting - A Detailed Guide on OSCP Preparation  <br />
 
 <hr>
 <br /> <b> Virtual Machine: </b>
-<br /> "Virtual Box - Oracle VM VirtualBox (formerly Sun VirtualBox, Sun xVM VirtualBox and Innotek VirtualBox) is a free and open-source hosted hypervisor for x86 virtualization, developed by Oracle Corporation. Created by Innotek GmbH, it was acquired by Sun Microsystems in 2008, which was, in turn, acquired by Oracle in 2010." - Wikipedia
+<br /> "Virtual Box - Oracle VM VirtualBox (formerly Sun VirtualBox, Sun xVM VirtualBox and Innotek VirtualBox) is a free and open-source hosted hypervisor for x86 virtualization, developed by Oracle Corporation. Created by Innotek GmbH, it was acquired by Sun Microsystems in 2008, which was, in turn, acquired by Oracle in 2010." - Wikipedia <br />
 - https://www.virtualbox.org/wiki/Downloads
 <br />
 

@@ -5,7 +5,7 @@
 note:
 -exploits won't work on systems that use update patches that fix the issue
 -RHOSTS is the ip address of target
--LHOSTS is the ip address of you
+-LHOSTS is the ip address of the user machine
 -"exploit" can be dropped off of path when referencing exploits
 
 ====================== Operations and Commands for MSF Console ====================

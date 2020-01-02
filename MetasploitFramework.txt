@@ -15,8 +15,8 @@ msfupdate
 
 
 start up services:
-service postgresql start --->
-service metasploit start --->
+service postgresql start ---> start up the postgresql server, Metasploit uses PostgreSQL as its database so it needs to be launched first
+service metasploit start --->  start up metasploit
 msfconsole   ---> runs the program
 
 
